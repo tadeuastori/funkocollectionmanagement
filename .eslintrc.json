@@ -1,0 +1,136 @@
+{
+  "root": true,
+  "ignorePatterns": [
+    "src/assets/*",
+    "vite/*"
+  ],
+  "plugins": [
+    "import",
+    "jasmine"
+  ],
+  "overrides": [
+    {
+      "files": [
+        "*.ts"
+      ],
+      "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@angular-eslint/recommended",
+        "plugin:@angular-eslint/template/process-inline-templates",
+        "plugin:jasmine/recommended",
+        "plugin:import/recommended",
+        "plugin:import/typescript"
+      ],
+      "rules": {
+        "@angular-eslint/directive-selector": [
+          "error",
+          {
+            "type": "attribute",
+            "prefix": "app",
+            "style": "camelCase"
+          }
+        ],
+        "@angular-eslint/component-selector": [
+          "error",
+          {
+            "type": "element",
+            "prefix": "app",
+            "style": "kebab-case"
+          }
+        ],
+        // Custom rules
+        "@typescript-eslint/explicit-function-return-type": [
+          "error"
+        ],
+        "@typescript-eslint/no-explicit-any": "off",
+        "@typescript-eslint/no-unused-vars": [
+          "error",
+          {
+            "argsIgnorePattern": "^_"
+          }
+        ],
+        "import/no-unresolved": "off",
+        "import/order": [
+          "error",
+          {
+            "alphabetize": {
+              "order": "asc",
+              "caseInsensitive": true
+            },
+            "newlines-between": "always",
+            "groups": [
+              [
+                "builtin",
+                "external"
+              ],
+              "internal",
+              [
+                "parent",
+                "sibling",
+                "index"
+              ]
+            ]
+          }
+        ],
+        "indent": [
+          "error",
+          2,
+          {
+            "ArrayExpression": 1,
+            "SwitchCase": 1,
+            "CallExpression": {
+              "arguments": 1
+            },
+            "flatTernaryExpressions": false,
+            "FunctionDeclaration": {
+              "body": 1,
+              "parameters": 1
+            },
+            "FunctionExpression": {
+              "body": 1,
+              "parameters": 1
+            },
+            "ImportDeclaration": 1,
+            "MemberExpression": 1,
+            "ObjectExpression": "first",
+            "offsetTernaryExpressions": true
+          }
+        ],
+        "no-multiple-empty-lines": [
+          "error",
+          {
+            "max": 1,
+            "maxEOF": 1
+          }
+        ],
+        "no-trailing-spaces": [
+          "error"
+        ],
+        "quotes": [
+          "error",
+          "single",
+          {
+            "allowTemplateLiterals": true
+          }
+        ],
+        "sort-imports": [
+          "error",
+          {
+            "ignoreCase": true,
+            "ignoreDeclarationSort": true
+          }
+        ]
+      }
+    },
+    {
+      "files": [
+        "*.html"
+      ],
+      "extends": [
+        "plugin:@angular-eslint/template/recommended"
+      ],
+      "rules": {}
+    }
+  ]
+}
