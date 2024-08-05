@@ -1,0 +1,77 @@
+@import "../../public/assets/styles/variables.less";
+
+.header {
+  background-color: @header-background-color;
+  max-width: @max-width;
+  height: @header-height;
+}
+
+main {
+  display: flex;
+
+  .nav {
+    background-color: @nav-background-color;
+    max-width: @nav-width;
+    min-height: calc(~"100vh - @{header-height} - @{footer-height}");
+  }
+
+  .article {
+    background-color: @article-background-color;
+    width: calc(~"100vw - @{nav-width}");
+    display: flex;
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: auto;
+    align-self: auto;
+    order: 0;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    align-content: flex-end;
+
+    .content {
+      height: 100%;
+      width: 100%;
+    }
+
+    .loading {
+      display: block;
+      flex-grow: 0;
+      flex-shrink: 1;
+      flex-basis: auto;
+      align-self: auto;
+      order: 0;
+      height: 100%;
+      width: 100%;
+    }
+  }
+}
+
+.footer {
+  background-color: @footer-background-color;
+  max-width: @max-width;
+  height: @footer-height;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: flex-end;
+
+  .content {
+    display: flex;
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: auto;
+    align-self: auto;
+    order: 0;
+    width: @nav-width;
+    height: @footer-height;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    align-content: flex-end;
+  }
+}

@@ -1,0 +1,92 @@
+@import "../../../../public/assets/styles/variables.less";
+
+.head {
+  display: flex;
+  width: 100%;
+
+  .title {
+    text-align: start;
+    font-size: xx-large;
+    font-weight: bold;
+    width: 100%;
+    display: flex;
+    height: @header-height;
+
+    span {
+      align-self: center;
+      border-radius: 0rem 2rem 2rem 0rem;
+      margin: 0.5rem 0rem;
+      background-color: white;
+      width: 25rem;
+      height: 4rem;
+      align-content: center;
+    }
+  }
+
+  .funko-we {
+    text-align: center;
+    min-width: @nav-width;
+    display: flex;
+    height: @header-height;
+
+    .portrade {
+      background-color: white;
+      width: 100%;
+      align-content: center;
+      border-radius: 0rem 0rem 0rem 0rem;
+      margin: 0.5rem 0rem;
+
+      img {
+        max-height: 3rem;
+        vertical-align: bottom;
+      }
+
+      .maple {
+        height: 1.5rem;
+      }
+    }
+  }
+
+  .profile {
+    display: flex;
+    margin-right: 1rem;
+
+    .dropdown {
+      align-self: center;
+      background-color: antiquewhite;
+      width: 48px;
+      height: 48px;
+      display: flex;
+      flex-grow: 0;
+      flex-shrink: 1;
+      flex-basis: auto;
+      order: 0;
+      justify-content: center;
+      align-items: center;
+      align-content: flex-end;
+      cursor: pointer;
+
+      img {
+        max-height: 40px;
+        max-width: 40px;
+      }
+    }
+  }
+}
+
+.offcanvas {
+  max-width: 18.75rem;
+
+  img {
+    max-height: 40px;
+    max-width: 40px;
+  }
+
+  li {
+    margin-bottom: 0.5rem;
+  }
+
+  li:hover {
+    font-weight: 600;
+  }
+}

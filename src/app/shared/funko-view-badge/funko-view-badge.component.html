@@ -1,0 +1,22 @@
+@if (hasValue) { @for (item of newList; track $index) { @switch
+(item.funkoViewBadgeType) { @case (funkoViewBadgeTypes.PRIMARY) {
+<span class="badge text-bg-primary badge-space">{{ item.item }}</span>
+} @case (funkoViewBadgeTypes.SECONDARY) {
+<span class="badge text-bg-secondary badge-space">{{ item.item }}</span>
+} @case (funkoViewBadgeTypes.SUCCESS) {
+<span class="badge text-bg-success badge-space">{{ item.item }}</span>
+} @case (funkoViewBadgeTypes.DANGER) {
+<span class="badge text-bg-danger badge-space">{{ item.item }}</span>
+} @case (funkoViewBadgeTypes.WARNING) {
+<span class="badge text-bg-warning badge-space">{{ item.item }}</span>
+} @case (funkoViewBadgeTypes.INFO) {
+<span class="badge text-bg-info badge-space">{{ item.item }}</span>
+} @case (funkoViewBadgeTypes.LIGHT) {
+<span class="badge text-bg-light badge-space">{{ item.item }}</span>
+} @case (funkoViewBadgeTypes.DARK) {
+<span class="badge text-bg-dark badge-space">{{ item.item }}</span>
+} @default {
+<span class="badge text-bg-light badge-space">{{ item.item }}</span>
+} } } } @else {
+<span class="badge text-bg-dark badge-space">No</span>
+}

@@ -1,0 +1,51 @@
+<div id="carouselIndicators" class="carousel carousel-dark slide">
+  <div class="carousel-indicators">
+    @for (item of displayList; track $index; let i = $index; let first = $first)
+    {
+    <button
+      type="button"
+      data-bs-target="#carouselIndicators"
+      [attr.data-bs-slide-to]="i"
+      [ngClass]="{ active: first }"
+      aria-current="true"
+      [attr.aria-label]="'Slide ' + i"
+    ></button>
+    }
+  </div>
+  <div class="carousel-inner">
+    @for (item of displayList; track $index; let i = $index; let first = $first)
+    {
+    <div class="carousel-item" [ngClass]="{ active: first }">
+      <img
+        src="{{ item.path }}"
+        class="img-fluid rounded mx-auto d-block"
+        alt="{{ item.name }}"
+        (click)="displayImage(item.name)"
+      />
+    </div>
+    }
+  </div>
+  <button
+    class="carousel-control-prev"
+    type="button"
+    data-bs-target="#carouselIndicators"
+    data-bs-slide="prev"
+  >
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button
+    class="carousel-control-next"
+    type="button"
+    data-bs-target="#carouselIndicators"
+    data-bs-slide="next"
+  >
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+<app-image-popup
+  [funkoName]="funkoName"
+  [imageName]="imageName$"
+></app-image-popup>

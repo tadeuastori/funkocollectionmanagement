@@ -1,0 +1,186 @@
+@if (hasSelectedFunko) {
+<div class="funko-panel">
+  <div class="funko-details">
+    <div class="col-12 vertical-separate">
+      <div class="card">
+        <div class="card-header">
+          <table>
+            <tr>
+              <th class="left">Package Information</th>
+            </tr>
+          </table>
+        </div>
+        <div class="card-body row">
+          <div class="col-12">
+            <div class="form-text">Name</div>
+            <label class="form-label text">{{ selectedFunko.name }}</label>
+          </div>
+        </div>
+        <div class="card-body row">
+          <div class="col-4">
+            <div class="form-text">Type</div>
+            <label class="form-label text">{{ selectedFunko.type }}</label>
+          </div>
+
+          <div class="col-4 separate">
+            <div class="form-text">Category</div>
+            <label class="form-label text">{{ selectedFunko.category }}</label>
+          </div>
+
+          <div class="col-4 separate">
+            <div class="form-text">Number</div>
+            <label class="form-label text">{{ selectedFunko.number }}</label>
+          </div>
+        </div>
+        <div class="card-body row">
+          <div class="col-12">
+            <div class="form-text">Collection</div>
+            <label class="form-label text">{{
+              selectedFunko.collection
+            }}</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 vertical-separate">
+      <div class="card">
+        <div class="card-header">
+          <table>
+            <tr>
+              <th class="left">Funko Information</th>
+            </tr>
+          </table>
+        </div>
+        <div class="card-body row">
+          <div class="col-3">
+            <div class="form-text">Box with</div>
+            <label class="form-label text">{{ selectedFunko.number }}</label>
+          </div>
+          <div class="col-3 separate">
+            <div class="form-text">Size</div>
+            <label class="form-label text">{{ selectedFunko.size }}</label>
+          </div>
+          <div class="col-6 separate">
+            <div class="form-text">Serial</div>
+            <label class="form-label text">{{ selectedFunko.serial }}</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 vertical-separate">
+      <div class="card">
+        <div class="card-header">
+          <table>
+            <tr>
+              <th class="left">Exclusive</th>
+            </tr>
+          </table>
+        </div>
+        <div class="card-body row">
+          <label class="form-label text">
+            <!-- @for (item of selectedFunko.exclusive; track $index) { -->
+            <app-funko-view-badge
+              [fullList]="selectedFunko.exclusive!"
+            ></app-funko-view-badge>
+            <!-- } -->
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 vertical-separate">
+      <div class="card">
+        <div class="card-header">
+          <table>
+            <tr>
+              <th class="left">Features</th>
+            </tr>
+          </table>
+        </div>
+        <div class="card-body row">
+          <label class="form-label text">
+            <!-- @for (item of selectedFunko.features; track $index) { -->
+            <app-funko-view-badge
+              [fullList]="selectedFunko.features!"
+            ></app-funko-view-badge>
+            <!-- } -->
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 vertical-separate">
+      <div class="card">
+        <div class="card-header">
+          <table>
+            <tr>
+              <th class="left">Stamps</th>
+            </tr>
+          </table>
+        </div>
+        <div class="card-body row">
+          <label class="form-label text">
+            <!-- @for (item of selectedFunko.stamps; track $index) { -->
+            <app-funko-view-badge
+              [fullList]="selectedFunko.stamps!"
+            ></app-funko-view-badge>
+            <!-- } -->
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 vertical-separate">
+      <div class="card">
+        <div class="card-header">
+          <table>
+            <tr>
+              <th class="left">Comments</th>
+            </tr>
+          </table>
+        </div>
+        <div class="card-body">
+          <label class="form-label text">{{ selectedFunko.comment }}</label>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 vertical-separate">
+      <div class="card">
+        <div class="card-header">
+          <table>
+            <tr>
+              <th class="left">Images</th>
+            </tr>
+          </table>
+        </div>
+        <div class="card-body">
+          <div class="image-form">
+            <app-image-slide
+              [imageList]="selectedFunko.image!"
+              [funkoName]="selectedFunko.name!"
+            ></app-image-slide>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="foot">
+  <div class="div-button-left">
+    <button type="button" class="btn btn-outline-danger" (click)="openPromptMessage()">
+      Delete Funko
+    </button>
+  </div>
+  <div class="div-button-center">
+    <button type="button" class="btn btn-outline-primary" (click)="editFunko()">
+      Edit Funko
+    </button>
+  </div>
+</div>
+} @else {
+<div class="funko-not-found">
+  <div class="image">
+    <img class="maple" src="/assets/images/general/maple-funko.png" />
+  </div>
+  <div class="message">
+    <span>Funko not found</span>
+  </div>
+</div>
+}

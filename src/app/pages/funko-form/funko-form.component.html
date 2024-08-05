@@ -1,0 +1,423 @@
+<div class="funko-panel">
+  <div class="funko-form">
+    <form [formGroup]="form">
+      <div class="col-12 vertical-separate">
+        <div class="card">
+          <div class="card-header">
+            <table>
+              <tr>
+                <th class="left">Package Information</th>
+              </tr>
+            </table>
+          </div>
+          <div class="card-body row">
+            <div class="col-12">
+              <label class="form-label">Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="name"
+                formControlName="name"
+              />
+            </div>
+          </div>
+          <div class="card-body row">
+            <div class="col-4">
+              <label class="form-label">Type</label>
+              <input
+                type="text"
+                class="form-control"
+                id="type"
+                formControlName="type"
+                list="datalistTypeOptions"
+              />
+              <datalist id="datalistTypeOptions">
+                @for (option of typeDatalist; track $index) {
+                <option [value]="option"></option>
+                }
+              </datalist>
+            </div>
+
+            <div class="col-4 separate">
+              <label class="form-label">Category</label>
+              <input
+                type="text"
+                class="form-control"
+                id="category"
+                formControlName="category"
+                list="datalistCategoryOptions"
+              />
+              <datalist id="datalistCategoryOptions">
+                @for (option of categoryDatalist; track $index) {
+                <option [value]="option"></option>
+                }
+              </datalist>
+            </div>
+
+            <div class="col-4 separate">
+              <label class="form-label">Number</label>
+              <input
+                type="text"
+                class="form-control"
+                id="number"
+                formControlName="number"
+              />
+            </div>
+          </div>
+          <div class="card-body row">
+            <div class="col-12">
+              <label class="form-label">Collection</label>
+              <input
+                type="text"
+                class="form-control"
+                id="collection"
+                formControlName="collection"
+                list="datalistCollectionOptions"
+              />
+              <datalist id="datalistCollectionOptions">
+                @for (option of collectionDatalist; track $index) {
+                <option [value]="option"></option>
+                }
+              </datalist>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 vertical-separate">
+        <div class="card">
+          <div class="card-header">
+            <table>
+              <tr>
+                <th class="left">Funko Information</th>
+              </tr>
+            </table>
+          </div>
+          <div class="card-body row">
+            <div class="col-3">
+              <label class="form-label">Box with</label>
+              <input
+                type="number"
+                class="form-control"
+                id="pack"
+                formControlName="pack"
+              />
+            </div>
+            <div class="col-3 separate">
+              <label class="form-label">Size</label>
+              <input
+                type="number"
+                class="form-control"
+                id="size"
+                formControlName="size"
+                list="datalistSizeOptions"
+              />
+              <datalist id="datalistSizeOptions">
+                @for (option of sizeDatalist; track $index) {
+                <option [value]="option"></option>
+                }
+              </datalist>
+            </div>
+            <div class="col-6 separate">
+              <label class="form-label">Serial</label>
+              <input
+                type="text"
+                class="form-control"
+                id="serial"
+                formControlName="serial"
+                list="datalistSerialOptions"
+              />
+              <datalist id="datalistSerialOptions">
+                @for (option of serialDatalist; track $index) {
+                <option [value]="option"></option>
+                }
+              </datalist>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 vertical-separate">
+        <div class="card">
+          <div class="card-header">
+            <table>
+              <tr>
+                <th class="left">Exclusive</th>
+                <td class="right">
+                  <div>
+                    <button
+                      type="button"
+                      class="btn btn-outline-primary btn-sm"
+                      (click)="addItemFormArray('exclusive')"
+                    >
+                      Add Exclusive Stamp
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="card-body">
+            <div class="image-form">
+              <ng-container formArrayName="exclusive">
+                @for (exclusiveItem of getFormArray('exclusive').controls; track
+                $index; let i = $index) {
+                <div class="array-item col-5">
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      [formControlName]="i"
+                      list="datalistExclusiveOptions"
+                      placeholder="Type to search..."
+                    />
+                    <button
+                      class="btn btn-outline-danger"
+                      type="button"
+                      id="button-addon2"
+                      (click)="removeItemFormArray('exclusive', i)"
+                    >
+                      X
+                    </button>
+                    <datalist id="datalistExclusiveOptions">
+                      @for (option of exclusiveDatalist; track $index) {
+                      <option [value]="option"></option>
+                      }
+                    </datalist>
+                  </div>
+                </div>
+                }
+              </ng-container>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 vertical-separate">
+        <div class="card">
+          <div class="card-header">
+            <table>
+              <tr>
+                <th class="left">Features</th>
+                <td class="right">
+                  <div>
+                    <button
+                      type="button"
+                      class="btn btn-outline-primary btn-sm"
+                      (click)="addItemFormArray('features')"
+                    >
+                      Add Features Stamp
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="card-body">
+            <div class="image-form">
+              <ng-container formArrayName="features">
+                @for (exclusiveItem of getFormArray('features').controls; track
+                $index; let i = $index) {
+                <div class="array-item col-5">
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      [formControlName]="i"
+                      list="datalistFeatureOptions"
+                      placeholder="Type to search..."
+                    />
+                    <button
+                      class="btn btn-outline-danger"
+                      type="button"
+                      id="button-addon2"
+                      (click)="removeItemFormArray('features', i)"
+                    >
+                      X
+                    </button>
+                    <datalist id="datalistFeatureOptions">
+                      @for (option of featureDatalist; track $index) {
+                      <option [value]="option"></option>
+                      }
+                    </datalist>
+                  </div>
+                </div>
+                }
+              </ng-container>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 vertical-separate">
+        <div class="card">
+          <div class="card-header">
+            <table>
+              <tr>
+                <th class="left">Stamps</th>
+                <td class="right">
+                  <div>
+                    <button
+                      type="button"
+                      class="btn btn-outline-primary btn-sm"
+                      (click)="addItemFormArray('stamps')"
+                    >
+                      Add Stamp
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="card-body">
+            <div class="image-form">
+              <ng-container formArrayName="stamps">
+                @for (exclusiveItem of getFormArray('stamps').controls; track
+                $index; let i = $index) {
+                <div class="array-item col-5">
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      [formControlName]="i"
+                      list="datalistStampOptions"
+                      placeholder="Type to search..."
+                    />
+                    <button
+                      class="btn btn-outline-danger"
+                      type="button"
+                      id="button-addon2"
+                      (click)="removeItemFormArray('stamps', i)"
+                    >
+                      X
+                    </button>
+                    <datalist id="datalistStampOptions">
+                      @for (option of stampDatalist; track $index) {
+                      <option [value]="option"></option>
+                      }
+                    </datalist>
+                  </div>
+                </div>
+                }
+              </ng-container>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 vertical-separate">
+        <div class="card">
+          <div class="card-header">
+            <table>
+              <tr>
+                <th class="left">Comments</th>
+              </tr>
+            </table>
+          </div>
+          <div class="card-body">
+            <textarea class="form-control" formControlName="comment"></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 vertical-separate">
+        <div class="card">
+          <div class="card-header">
+            <table>
+              <tr>
+                <th class="left">Images</th>
+                <td class="right">
+                  <div>
+                    <button
+                      type="button"
+                      class="btn btn-outline-primary btn-sm"
+                      (click)="addImage()"
+                    >
+                      Add Image
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="card-body">
+            <div class="image-form">
+              <ng-container formArrayName="image">
+                @for (imageForm of formImages.controls; track $index; let i =
+                $index) {
+                <div class="image-slot">
+                  <div class="input-group" [formGroupName]="i">
+                    <span class="input-group-text" id="addon-wrapping">
+                      {{ i + 1 }}</span
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      formControlName="name"
+                      placeholder="Image's name + extension"
+                    />
+                    @if (getControlValuebyIndex(i, 'name')) {
+                    <button
+                      class="btn btn-outline-success"
+                      type="button"
+                      id="button-addon4"
+                      (click)="displayImage(getControlValuebyIndex(i, 'name'))"
+                    >
+                      View
+                    </button>
+                    <button
+                      class="btn btn-outline-primary"
+                      type="button"
+                      id="button-addon3"
+                      (click)="
+                        copyToClipboard(getControlValuebyIndex(i, 'name'))
+                      "
+                    >
+                      Copy
+                    </button>
+                    }
+                    <button
+                      class="btn btn-outline-danger"
+                      type="button"
+                      id="button-addon2"
+                      (click)="removeImage(i)"
+                    >
+                      X
+                    </button>
+                  </div>
+                </div>
+                }
+              </ng-container>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<div class="foot">
+  <div class="div-button-left">
+    <button
+      type="button"
+      class="btn btn-outline-danger"
+      (click)="voltarPagina()"
+    >
+      Cancel
+    </button>
+  </div>
+  <div class="div-button-center">
+    <button
+      type="button"
+      class="btn btn-outline-primary"
+      (click)="saveFunko()"
+      [disabled]="form.untouched || form.pristine"
+    >
+      Save Funko
+    </button>
+  </div>
+</div>
+
+<app-image-popup
+  [funkoName]="funkoName"
+  [imageName]="imageName$"
+></app-image-popup>
+
+<app-prompt-message
+  [title]="'Delete Funko'"
+>
+  <p>Are you sure you want to delete this Funko?</p>
+</app-prompt-message>

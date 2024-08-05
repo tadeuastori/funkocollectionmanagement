@@ -1,0 +1,39 @@
+<div class="generate">
+  <div class="card text-center">
+    <div class="card-header">
+      <div class="btn btn-primary">
+        funkos registered in the state
+        <span class="badge text-bg-secondary">{{ listCount }}</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <textarea
+        class="form-control"
+        id="jsonControl"
+        rows="3"
+        disabled="true"
+        >{{ json }}</textarea
+      >
+    </div>
+    <div class="card-footer text-body-secondary foot">
+      <div class="reload">
+        <button
+          type="button"
+          class="btn btn-outline-danger"
+          (click)="openPromptMessage()"
+        >
+          Reload data from JSON file
+        </button>
+      </div>
+      <div class="copy">
+        <button
+          type="button"
+          class="btn btn-outline-success"
+          (click)="gerarJson()"
+        >
+          Copy Json to clipboard
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

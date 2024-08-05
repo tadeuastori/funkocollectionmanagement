@@ -1,0 +1,107 @@
+@import "../../../../public/assets/styles/variables.less";
+
+.funko-panel {
+  margin: 2rem;
+
+  .funko-details {
+    .row {
+      background-color: #f8f9fa;
+      margin: 0.2rem;
+      border-radius: 0.5rem;
+    }
+
+    .text {
+      margin-left: 0.65rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    .separate {
+      border-left: white 0.2rem solid;
+    }
+
+    .vertical-separate {
+      margin-bottom: 1rem;
+    }
+
+    table {
+      width: 100%;
+
+      .left {
+        align-content: center;
+        text-align: left;
+      }
+    }
+  }
+}
+
+.foot {
+  //   border-top: 0.01rem black solid;
+  text-align: center;
+  padding: 1rem;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+
+  div {
+    flex-grow: 1;
+  }
+
+  button {
+    margin: 0px 10px 0px 10px;
+  }
+}
+
+.funko-not-found {
+  background-color: @article-background-color;
+  width: calc(~"100vw - @{nav-width}");
+  min-height: calc(~"100vh - @{header-height} - @{footer-height}");
+  display: flex;
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  align-self: auto;
+  order: 0;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: flex-end;
+  flex-direction: column;
+
+  .message {
+    display: block;
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: auto;
+    align-self: auto;
+    order: 0;
+    height: 100%;
+    width: 100%;
+
+    span {
+      align-items: center;
+      height: 100%;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      font-size: large;
+      font-weight: 700;
+    }
+  }
+
+  .image {
+    display: block;
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: auto;
+    align-self: auto;
+    order: 0;
+
+    img {
+      align-items: center;
+      max-height: 8rem;
+      display: flex;
+      justify-content: center;
+    }
+  }
+}

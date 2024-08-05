@@ -1,0 +1,71 @@
+<div class="head">
+  <div class="funko-we">
+    <div class="portrade">
+      <img class="tadeu" src="/assets/images/general/tadeu-funko.png" />
+      <img class="maple" src="/assets/images/general/maple-funko.png" />
+      <img class="vivi" src="/assets/images/general/vivi-funko.png" />
+    </div>
+  </div>
+  <div class="title"><span>My Funko Collection</span></div>
+  <div class="profile">
+    <div
+      class="dropdown rounded-circle"
+      data-bs-toggle="offcanvas"
+      data-bs-target="#offcanvasRight"
+      aria-controls="offcanvasRight"
+    >
+      <img
+        src="https://github.com/tadeuastori.png"
+        alt=""
+        class="rounded-circle"
+      />
+    </div>
+  </div>
+</div>
+
+<div
+  class="offcanvas offcanvas-end"
+  tabindex="-1"
+  id="offcanvasRight"
+  aria-labelledby="offcanvasRightLabel"
+  data-bs-scroll="true"
+  data-bs-backdrop="true"
+>
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasRightLabel">
+      <img
+        src="https://github.com/tadeuastori.png"
+        alt="Carlos Astori"
+        class="rounded-circle me-2"
+      />
+      <strong>Carlos Astori</strong>
+    </h5>
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="offcanvas"
+      aria-label="Close"
+    ></button>
+  </div>
+  <hr />
+  <div class="offcanvas-body">
+    <ul class="navbar-nav justify-content-end flex-grow-1 pe-1">
+      <li class="nav-item">
+        <a class="nav-link" aria-current="page" href="#">
+          <i class="bi bi-file-earmark-code"></i>
+          Take a look on this code</a
+        >
+      </li>
+      @for(item of linkItems; track $index) {
+      <li>
+        <a class="nav-link" href="{{ item.routerLink }}" target="_blank">
+          @if (item.iconName) {
+          <i class="{{ item.iconName }}"></i>
+          }
+          {{ item.label }}</a
+        >
+      </li>
+      }
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+<div class="d-flex flex-nowrap navigation">
+  <div class="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary list-nav">
+    <ul class="nav nav-pills flex-column mb-auto">
+      @for (item of menuItems; track $index) {
+      <hr />
+      <li class="nav-item">
+        <a
+          class="{{ activeRoute(item.routerLink) }}"
+          aria-current="page"
+          (click)="navigate(item.routerLink)"
+        >
+          @if (item.iconName) {
+          <i class="{{ item.iconName }}"></i>
+          }
+          {{ item.label }}
+        </a>
+      </li>
+      }
+      <hr />
+    </ul>
+  </div>
+</div>

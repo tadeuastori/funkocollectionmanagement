@@ -3,14 +3,15 @@ import { Funko, IFunko } from '../modules/funko.module';
 export enum FunkoListStateActionsTypes {
   IsFunkoListReady = '[FunkoCollectionManagement] IsFunkoListReady',
   isFunkoListEdited = '[FunkoCollectionManagement] isFunkoListEdited',
-  GetFunkoList = '[FunkoCollectionManagement] GetFunkoList',
   AddFunko = '[FunkoCollectionManagement] AddFunko',
   UpdateFunko = '[FunkoCollectionManagement] UpdateFunko',
   DeleteFunko = '[FunkoCollectionManagement] DeleteFunko',
-  GetFunko = '[FunkoCollectionManagement] GetFunko',
+  SetSelectedFunko = '[FunkoCollectionManagement] SetSelectedFunko',
   UnselectFunko = '[FunkoCollectionManagement] UnselectFunko',
   LoadFunkoList = '[FunkoCollectionManagement] LoadFunkoList',
   GenerateJson = '[FunkoCollectionManagement] GenerateJson',
+  SetFilter = '[FunkoCollectionManagement] SetFilter',
+  ResetState = '[FunkoCollectionManagement] ResetState',
 }
 
 export class IsFunkoListReady {
@@ -21,11 +22,6 @@ export class IsFunkoListReady {
 export class IsFunkoListEdited {
   public static readonly type = FunkoListStateActionsTypes.isFunkoListEdited;
   constructor(public payload: boolean) {}
-}
-
-export class GetFunkoList {
-  public static readonly type = FunkoListStateActionsTypes.GetFunkoList;
-  constructor() {}
 }
 
 export class AddFunko {
@@ -43,8 +39,8 @@ export class DeleteFunko {
   constructor(public id: string) {}
 }
 
-export class GetFunko {
-  public static readonly type = FunkoListStateActionsTypes.GetFunko;
+export class SetSelectedFunko {
+  public static readonly type = FunkoListStateActionsTypes.SetSelectedFunko;
   constructor(public id: string) {}
 }
 
@@ -60,5 +56,15 @@ export class GenerateJson {
 
 export class UnselectFunko {
   public static readonly type = FunkoListStateActionsTypes.UnselectFunko;
+  constructor() {}
+}
+
+export class SetFilter {
+  public static readonly type = FunkoListStateActionsTypes.SetFilter;
+  constructor(public inlineFilter: string) {}
+}
+
+export class ResetState {
+  public static readonly type = FunkoListStateActionsTypes.ResetState;
   constructor() {}
 }

@@ -1,0 +1,18 @@
+<nav class="navbar bg-body-tertiary">
+  <div class="container-fluid">
+    <form class="container-fluid" role="search" [formGroup]="formSearch">
+      <div class="input-group">
+        <span class="input-group-text" id="addon-wrapping">
+          <i class="bi bi-funnel"></i>
+        </span>
+        <input
+          class="form-control form-control-lg"
+          type="search"
+          placeholder="Search..."
+          aria-label="Search"
+          formControlName="inlineSearch"
+        />
+      </div>
+    </form>
+  </div>
+</nav>

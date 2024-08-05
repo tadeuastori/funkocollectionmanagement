@@ -1,0 +1,19 @@
+@if (totalItems != 0) {
+<div class="form-floating items-per-page">
+  <select
+    class="form-select"
+    id="floatingSelect"
+    aria-label="Floating label select example"
+    [(ngModel)]="itemsPerPage"
+  >
+    @for (item of itemsArray; track $index) {
+    <option [ngValue]="item">
+      {{ item }}
+    </option>
+    } @if(totalItems > 50){
+    <option value="{{ totalItems }}">All Items</option>
+    }
+  </select>
+  <label for="floatingSelect">Items per page</label>
+</div>
+}

@@ -6,17 +6,18 @@ import { environment } from '../environments/environment';
 import { NgxsStoragePluginModule, StorageOption } from '@ngxs/storage-plugin';
 import { AppStoreKeys } from './store-keys.module';
 import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
+import { MessageState } from '../app/states/message.state';
 @NgModule({
   imports: [
     CommonModule,
-    NgxsModule.forRoot([FunkoState], {
+    NgxsModule.forRoot([FunkoState, MessageState], {
       developmentMode: !environment.production,
     }),
 
     NgxsReduxDevtoolsPluginModule.forRoot({}),
     NgxsStoragePluginModule.forRoot({
       storage: StorageOption.SessionStorage,
-      keys: [AppStoreKeys.FunkoState],
+      keys: [AppStoreKeys.FunkoState, AppStoreKeys.MessageState],
     }),
   ],
   exports: [NgxsModule],

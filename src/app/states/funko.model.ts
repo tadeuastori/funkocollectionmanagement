@@ -6,6 +6,7 @@ export interface IFunkoStateModel {
   funkoList: IFunko[];
   selectedFunko: IFunko;
   filter: string;
+  lastTimestampLoaded: Date;
 }
 
 export const defaultFunkoStateModel = {
@@ -14,4 +15,5 @@ export const defaultFunkoStateModel = {
   funkoList: [new Funko()] as IFunko[],
   selectedFunko: new Funko() as IFunko,
   filter: '',
+  lastTimestampLoaded: new Date(),
 } as IFunkoStateModel;

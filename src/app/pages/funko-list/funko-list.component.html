@@ -1,0 +1,57 @@
+@if (showAlert) {
+<div class="alert alert-warning" role="alert">
+  There is a change in the list. Go to Generate JSON page regarding to copy and
+  paste the JSON.
+</div>
+}
+
+<div class="content">
+  <div class="filter">
+    <app-table-filter></app-table-filter>
+  </div>
+
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Collection</th>
+        <th scope="col">Name</th>
+      </tr>
+    </thead>
+    <tbody class="table-group-divider">
+      @for (item of funkosList | filter : searchText: ['name',
+      'number','collection', 'comment'] : filteredCount | pagination :
+      itemsPage.perPage : paginator.currentPage; track item.uniqueId) {
+      <tr (click)="goToViewPage(item.uniqueId)">
+        <th scope="row">{{ item.number }}</th>
+        <td>{{ item.collection }}</td>
+        <td>{{ item.name }}</td>
+      </tr>
+      }
+    </tbody>
+    <tfoot>
+      <tr>
+        <th scope="row" colspan="3">
+          <div class="pagination">
+            <div class="d-line p-0">
+              Total Funkos: {{ filteredCount.count }}
+            </div>
+            <div class="d-line p-0">
+              <app-table-items-per-page
+                [totalItems]="filteredCount.count"
+                #itemsPage
+              ></app-table-items-per-page>
+            </div>
+            <div class="d-line p-0">
+              <app-table-pagination
+                [listLength]="filteredCount.count"
+                [itemsPerPage]="itemsPage.perPage"
+                #paginator
+              ></app-table-pagination>
+            </div>
+          </div>
+        </th>
+      </tr>
+    </tfoot>
+  </table>
+</div>

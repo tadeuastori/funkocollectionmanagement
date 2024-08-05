@@ -1,21 +1,22 @@
-import { Action, Selector, State, StateContext, Store } from '@ngxs/store';
+import { Action, Selector, State, StateContext } from '@ngxs/store';
 import { defaultFunkoStateModel, IFunkoStateModel } from './funko.model';
 import { AppStoreKeys } from '../../store/store-keys.module';
 import { Injectable } from '@angular/core';
-import { first, lastValueFrom, Observable } from 'rxjs';
 import { Funko, IFunko } from '../modules/funko.module';
 import {
   AddFunko,
   GenerateJson,
-  GetFunko,
-  GetFunkoList,
+  SetSelectedFunko,
   IsFunkoListEdited,
   IsFunkoListReady,
   LoadFunkoList,
+  ResetState,
+  SetFilter,
   UnselectFunko,
+  DeleteFunko,
+  UpdateFunko,
 } from './funko.actions';
 import { FunkoService } from '../services/funko.service';
-import { filter } from 'lodash';
 
 @State<IFunkoStateModel>({
   name: AppStoreKeys.FunkoState,
@@ -23,7 +24,7 @@ import { filter } from 'lodash';
 })
 @Injectable()
 export class FunkoState {
-  constructor(private _store: Store, private _funkoService: FunkoService) {}
+  constructor(private _funkoService: FunkoService) {}
 
   @Selector()
   public static getFunkosList(state: IFunkoStateModel): IFunko[] {
@@ -67,30 +68,28 @@ export class FunkoState {
   }
 
   @Action(LoadFunkoList)
-  loadFunkoList(
+  async loadFunkoList(
     ctx: StateContext<IFunkoStateModel>,
     { funkoList }: LoadFunkoList
-  ): void {
+  ): Promise<void> {
     ctx.patchState({ isFunkoListReady: false });
 
     if (funkoList) {
       ctx.patchState({ funkoList: funkoList });
-      ctx.patchState({ isFunkoListReady: true });
     } else {
-      var fromDB = this._funkoService.loadFunkoListFromFile() as IFunko[];
+      const funkoFromState = ctx.getState().funkoList as IFunko[];
+      const isEditabled = ctx.getState().isFunkoListEdited;
 
-      ctx.patchState({ funkoList: fromDB });
+      if (funkoFromState.length > 0 && isEditabled) {
+        ctx.patchState({ funkoList: funkoFromState });
+      } else {
+        var fromDB = this._funkoService.loadFunkoListFromFile() as IFunko[];
+        ctx.patchState({ funkoList: fromDB });
+        ctx.patchState({ lastTimestampLoaded: new Date() });
+      }
     }
 
     ctx.patchState({ isFunkoListReady: true });
-  }
-
-  @Action(GetFunkoList)
-  getFunkoList(
-    ctx: StateContext<IFunkoStateModel>,
-    action: GetFunkoList
-  ): IFunko[] {
-    return ctx.getState().funkoList;
   }
 
   @Action(AddFunko)
@@ -98,33 +97,20 @@ export class FunkoState {
     ctx: StateContext<IFunkoStateModel>,
     { funko }: AddFunko
   ): Promise<void> {
-    var funkoList = (await lastValueFrom(
-      this._store.select(FunkoState.getFunkosList).pipe(first())
-    )) as IFunko[];
+    var funkoList = [...ctx.getState().funkoList];
 
     funkoList.push(funko);
 
     ctx.dispatch(new LoadFunkoList(funkoList));
+    ctx.dispatch(new IsFunkoListEdited(true));
   }
 
-  @Action(GenerateJson)
-  generateJson(
+  @Action(SetSelectedFunko)
+  async setSelectedFunko(
     ctx: StateContext<IFunkoStateModel>,
-    action: GenerateJson
-  ): string {
-    return this._funkoService.generateJsonFromFunkoList(
-      ctx.getState().funkoList
-    );
-  }
-
-  @Action(GetFunko)
-  async getFunko(
-    ctx: StateContext<IFunkoStateModel>,
-    { id }: GetFunko
+    { id }: SetSelectedFunko
   ): Promise<IFunko> {
-    var funkoList = (await lastValueFrom(
-      this._store.select(FunkoState.getFunkosList).pipe(first())
-    )) as IFunko[];
+    var funkoList = ctx.getState().funkoList;
 
     funkoList.map((funko) => {
       if (funko.uniqueId === id) {
@@ -136,10 +122,65 @@ export class FunkoState {
   }
 
   @Action(UnselectFunko)
-  unselectFunko(
+  async unselectFunko(
     ctx: StateContext<IFunkoStateModel>,
     action: UnselectFunko
-  ): void {
+  ): Promise<void> {
     ctx.patchState({ selectedFunko: new Funko() as IFunko });
+  }
+
+  @Action(SetFilter)
+  async setFilter(
+    ctx: StateContext<IFunkoStateModel>,
+    { inlineFilter }: SetFilter
+  ): Promise<void> {
+    ctx.patchState({ filter: inlineFilter });
+  }
+
+  @Action(ResetState)
+  async resetState(ctx: StateContext<IFunkoStateModel>): Promise<void> {
+    ctx.setState(defaultFunkoStateModel);
+  }
+
+  @Action(GenerateJson)
+  async generateJson(
+    ctx: StateContext<IFunkoStateModel>,
+    action: GenerateJson
+  ): Promise<void> {
+    ctx.dispatch(new IsFunkoListEdited(false));
+  }
+
+  @Action(DeleteFunko)
+  async deleteFunko(
+    ctx: StateContext<IFunkoStateModel>,
+    action: DeleteFunko
+  ): Promise<void> {
+    var funkoList = [...ctx.getState().funkoList];
+
+    let index = funkoList.findIndex((funko) => funko.uniqueId === action.id);
+    funkoList.splice(index, 1);
+
+    ctx.dispatch(new UnselectFunko());
+    ctx.dispatch(new LoadFunkoList(funkoList));
+    ctx.dispatch(new IsFunkoListEdited(true));
+  }
+
+  @Action(UpdateFunko)
+  async updateFunko(
+    ctx: StateContext<IFunkoStateModel>,
+    action: UpdateFunko
+  ): Promise<void> {
+    var funkoList = [...ctx.getState().funkoList];
+
+    let index = funkoList.findIndex(
+      (funko) => funko.uniqueId === action.funko.uniqueId
+    );
+    funkoList.splice(index, 1);
+
+    funkoList.push(action.funko);
+
+    ctx.dispatch(new LoadFunkoList(funkoList));
+    ctx.dispatch(new IsFunkoListEdited(true));
+    ctx.dispatch(new SetSelectedFunko(action.funko.uniqueId));
   }
 }

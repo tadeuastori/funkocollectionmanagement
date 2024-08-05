@@ -1,7 +1,40 @@
-<!-- <app-banner></app-banner> -->
-<!-- <app-header></app-header> -->
-<app-side-navigation></app-side-navigation>
-<router-outlet />
-<!-- <app-footer></app-footer> -->
-<!-- <app-list></app-list> -->
-<!-- <app-loading-page></app-loading-page> -->
+<!-- <app-page-banner></app-page-banner> -->
+<div class="d-flex flex-column">
+  <header>
+    <div class="header">
+      <div class="content">
+        <app-page-header></app-page-header>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="nav">
+      <app-page-navigation></app-page-navigation>
+    </div>
+
+    <div class="article">
+      @if(!isLoading){
+      <div class="content">
+        <router-outlet></router-outlet>
+      </div>
+      } @else {
+      <div class="loading">
+        <app-page-loading></app-page-loading>
+      </div>
+      }
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer">
+      <div class="content">
+        <app-page-footer></app-page-footer>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<app-toast-message></app-toast-message>
+
+

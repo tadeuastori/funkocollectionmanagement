@@ -1,0 +1,65 @@
+.funko-panel {
+  margin: 2rem;
+
+  .funko-form {
+    .separate {
+      border-left: white 0.2rem solid;
+    }
+
+    table {
+      width: 100%;
+
+      .right {
+        align-content: center;
+        text-align: right;
+      }
+
+      .left {
+        align-content: center;
+        text-align: left;
+      }
+    }
+
+    .vertical-separate {
+      margin-bottom: 1rem;
+    }
+
+    .array-item {
+      display: flex;
+      float: left;
+      &:not(:last-child) {
+        margin-bottom: 0.5rem;
+        margin-right: 0.5rem;
+      }
+    }
+
+    .image-form {
+      .image-slot {
+        border: 1px #ced4da solid;
+        border-radius: 0.375rem;
+        padding: 0.25rem;
+
+        &:not(:last-child) {
+          margin-bottom: 0.5rem;
+        }
+      }
+    }
+  }
+}
+
+.foot {
+  //   border-top: 0.01rem black solid;
+  text-align: center;
+  padding: 1rem;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+
+  div {
+    flex-grow: 1;
+  }
+
+  button {
+    margin: 0px 10px 0px 10px;
+  }
+}
