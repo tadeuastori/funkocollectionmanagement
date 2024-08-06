@@ -11,8 +11,6 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 export class PromptMessageComponent {
   title: string = 'Modal Title';
   message: string = 'Modal Message';
-  // @Output() closeEvent = new EventEmitter<void>();
-  // @Output() confirmEvent = new EventEmitter<void>();
 
   resolve!: (value: boolean) => void;
 

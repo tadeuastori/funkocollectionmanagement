@@ -348,10 +348,13 @@ export class FunkoFormComponent extends BaseComponent implements OnInit {
       return true;
     }
 
-
     return this._promptMessage.showPrompt('Unsaved Changes', 'There are unsaved changes. Do you want to leave?').then(result => {
       this._promptMessage.hidePrompt()
-      this._store.dispatch(new ShowMessageWarning('Changes has been discarded!'));
+      
+      if(result){
+        this._store.dispatch(new ShowMessageWarning('Changes has been discarded!'));
+      }
+
       return result;
     });
   }

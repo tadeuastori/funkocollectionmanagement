@@ -24,8 +24,4 @@ export class PageNavigationComponent {
       ? 'nav-link active'
       : 'nav-link';
   }
-
-  navigate(itemId: string) {
-    this._router.navigate([itemId]);
-  }
 }

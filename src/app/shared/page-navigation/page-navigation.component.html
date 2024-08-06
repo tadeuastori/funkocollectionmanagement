@@ -6,8 +6,8 @@
       <li class="nav-item">
         <a
           class="{{ activeRoute(item.routerLink) }}"
-          aria-current="page"
-          (click)="navigate(item.routerLink)"
+          aria-current="page"          
+          routerLink="{{ item.routerLink }}"
         >
           @if (item.iconName) {
           <i class="{{ item.iconName }}"></i>
