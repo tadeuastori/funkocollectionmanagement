@@ -20,7 +20,7 @@ export class ImageSlideComponent implements OnInit {
 
   defaultList: string[] = ['model-box.jpeg', 'model-funko.jpeg'];
 
-  imagePath: string = '/assets/images/';
+  imagePath: string = 'assets/images/';
   defaultImagePath: string = this.imagePath + 'funkos/default/';
   funkoImagePath: string = this.imagePath + 'funkos/';
 

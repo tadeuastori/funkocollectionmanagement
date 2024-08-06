@@ -14,7 +14,7 @@ export class ImagePopupComponent implements OnInit {
   @Input() funkoName = '';
   @Input() imageName = new Observable<string>();
 
-  imagePath: string = '/assets/images/';
+  imagePath: string = 'assets/images/';
   defaultImagePath: string = this.imagePath + 'funkos/default/';
   funkoImagePath: string = this.imagePath + 'funkos/';
 
