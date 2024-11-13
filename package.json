@@ -9,7 +9,8 @@
     "test": "ng test",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "deploy": "ng build --output-path docs --base-href /funkocollectionmanagement/"
+    "deploy": "ng build --output-path docs --base-href /funkocollectionmanagement/",
+    "prebuild": "npm version patch"
   },
   "private": true,
   "dependencies": {
