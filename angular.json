@@ -46,12 +46,20 @@
                   "maximumError": "4kB"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "outputPath": {
+                "base": "dist/funkocollectionmanagement",
+                "browser": ""
+              }
             },
             "development": {
               "optimization": false,
               "extractLicenses": false,
-              "sourceMap": true
+              "sourceMap": true,
+              "outputPath": {
+                "base": "dist/funkocollectionmanagement",
+                "browser": ""
+              }
             }
           },
           "defaultConfiguration": "production"
