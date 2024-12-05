@@ -48,7 +48,7 @@
               ],
               "outputHashing": "all",
               "outputPath": {
-                "base": "dist/funkocollectionmanagement",
+                "base": "dist",
                 "browser": ""
               }
             },
@@ -57,7 +57,7 @@
               "extractLicenses": false,
               "sourceMap": true,
               "outputPath": {
-                "base": "dist/funkocollectionmanagement",
+                "base": "dist",
                 "browser": ""
               }
             }
