@@ -9,8 +9,9 @@
     "test": "ng test",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "deploy": "ng build --output-path docs --base-href /funkocollectionmanagement/",
-    "prebuild": "npm version patch && ng build && npm run deploy && node post-build.js"
+    "prebuild": "ng build --output-path docs --base-href /funkocollectionmanagement/",
+    "postbuild":"node post-build.js",
+    "deploy": "npm version patch && ng build && npm run prebuild && npm run postbuild"
   },
   "private": true,
   "dependencies": {
