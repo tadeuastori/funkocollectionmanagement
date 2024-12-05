@@ -17,10 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": {
-              "base": "./docs",
-              "browser": ""
-            },
+            "outputPath": "dist/funkocollectionmanagement",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": ["zone.js"],
@@ -49,20 +46,12 @@
                   "maximumError": "4kB"
                 }
               ],
-              "outputHashing": "all",
-              "outputPath": {
-                "base": "dist",
-                "browser": ""
-              }
+              "outputHashing": "all"
             },
             "development": {
               "optimization": false,
               "extractLicenses": false,
-              "sourceMap": true,
-              "outputPath": {
-                "base": "dist",
-                "browser": ""
-              }
+              "sourceMap": true
             }
           },
           "defaultConfiguration": "production"
