@@ -10,7 +10,7 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "deploy": "ng build --output-path docs --base-href /funkocollectionmanagement/",
-    "prebuild": "npm version patch"
+    "prebuild": "npm version patch && ng build"
   },
   "private": true,
   "dependencies": {
