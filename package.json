@@ -1,6 +1,6 @@
 {
   "name": "funkocollectionmanagement",
-  "version": "2.0.5",
+  "version": "2.0.4",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -9,7 +9,7 @@
     "test": "ng test",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "deploy": "ng build --base-href /funkocollectionmanagement/",
+    "deploy": "ng build --output-path docs --base-href /funkocollectionmanagement/",
     "prebuild": "npm version patch && ng build && npm run deploy"
   },
   "private": true,
