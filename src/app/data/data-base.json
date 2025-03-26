@@ -6964,5 +6964,209 @@
         "order": 1
       }
     ]
+  },
+  {
+    "uniqueId": "686f9f72f5e448a6a94f406c909c70d9",
+    "type": "Pop",
+    "category": "Television",
+    "collection": "Stargate SG-1",
+    "number": "1660",
+    "name": "Teal'c",
+    "serial": "GWT240911",
+    "comment": null,
+    "pack": 1,
+    "size": 6,
+    "features": [],
+    "exclusive": [],
+    "stamps": [],
+    "image": [
+      {
+        "name": "stargate-sg-1-1660-01.jpeg",
+        "base64": null,
+        "order": 1
+      }
+    ]
+  },
+  {
+    "uniqueId": "474124f14da54bc69bd57d2aee27e833",
+    "type": "Pop",
+    "category": "Television",
+    "collection": "Stargate SG-1",
+    "number": "1659",
+    "name": "Samantha Carter",
+    "serial": "GWT240911",
+    "comment": null,
+    "pack": 1,
+    "size": 6,
+    "features": [],
+    "exclusive": [],
+    "stamps": [],
+    "image": [
+      {
+        "name": "stargate-sg-1-1659-01.jpeg",
+        "base64": null,
+        "order": 1
+      }
+    ]
+  },
+  {
+    "uniqueId": "105bfcad00b44f3aabdad494e5baecc0",
+    "type": "Pop",
+    "category": null,
+    "collection": "Star Wars",
+    "number": "738",
+    "name": "Emperor Palpatine",
+    "serial": "FAC-053571-24206",
+    "comment": null,
+    "pack": 1,
+    "size": 6,
+    "features": [
+      "Bobble-Head"
+    ],
+    "exclusive": [],
+    "stamps": [],
+    "image": [
+      {
+        "name": "star-wars-738-01.jpeg",
+        "base64": null,
+        "order": 1
+      }
+    ]
+  },
+  {
+    "uniqueId": "07b0778a848349cab81e58dcca6fb08e",
+    "type": "Pop",
+    "category": null,
+    "collection": "Wandavision",
+    "number": "823",
+    "name": "Scarlet Witch",
+    "serial": "FAC-053571-23341",
+    "comment": null,
+    "pack": 1,
+    "size": 10,
+    "features": [
+      "Bobble-Head"
+    ],
+    "exclusive": [],
+    "stamps": [],
+    "image": [
+      {
+        "name": "wandavision-823-01.jpeg",
+        "base64": null,
+        "order": 1
+      }
+    ]
+  },
+  {
+    "uniqueId": "ce432dcb4ffa4c5f8d64c34ee19a1069",
+    "type": "Pop",
+    "category": "Television",
+    "collection": "Felix",
+    "number": "1616",
+    "name": "Felix The Cat",
+    "serial": "DRM240808",
+    "comment": null,
+    "pack": 1,
+    "size": 6,
+    "features": [],
+    "exclusive": [],
+    "stamps": [],
+    "image": [
+      {
+        "name": "felix-1616-01.jpeg",
+        "base64": null,
+        "order": 1
+      }
+    ]
+  },
+  {
+    "uniqueId": "3e04d2e864a7441f85fafb400c13697b",
+    "type": "Pop",
+    "category": null,
+    "collection": "Eternals",
+    "number": "729",
+    "name": "Thena",
+    "serial": "FAC-053571-21245",
+    "comment": null,
+    "pack": 1,
+    "size": 6,
+    "features": [
+      "Bobble-Head"
+    ],
+    "exclusive": [],
+    "stamps": [],
+    "image": [
+      {
+        "name": "eternals-729-01.jpeg",
+        "base64": null,
+        "order": 1
+      }
+    ]
+  },
+  {
+    "uniqueId": "365c6d15b46d49d5b8a6c5cdb1b41b47",
+    "type": "Pop",
+    "category": "Heroes",
+    "collection": "Batman Returns",
+    "number": "528",
+    "name": "Catwoman",
+    "serial": "TFU240703",
+    "comment": null,
+    "pack": 1,
+    "size": 6,
+    "features": [],
+    "exclusive": [],
+    "stamps": [],
+    "image": [
+      {
+        "name": "batman-returns-528-01.jpeg",
+        "base64": null,
+        "order": 1
+      }
+    ]
+  },
+  {
+    "uniqueId": "e1e789707f334cb2b1d526ade44fd825",
+    "type": "Pop",
+    "category": "Heroes",
+    "collection": "Batman Returns",
+    "number": "529",
+    "name": "The Penguin",
+    "serial": "TFU240703",
+    "comment": null,
+    "pack": 1,
+    "size": 5,
+    "features": [],
+    "exclusive": [],
+    "stamps": [],
+    "image": [
+      {
+        "name": "batman-returns-529-01.jpeg",
+        "base64": null,
+        "order": 1
+      }
+    ]
+  },
+  {
+    "uniqueId": "b348d29436f2489f8cb365203733ecd6",
+    "type": "Pop",
+    "category": "Heroes",
+    "collection": "Batman Forever",
+    "number": "530",
+    "name": "The Riddler",
+    "serial": "TFU240703",
+    "comment": null,
+    "pack": 1,
+    "size": 6,
+    "features": [],
+    "exclusive": [],
+    "stamps": [],
+    "image": [
+      {
+        "name": "batman-forever-530-01.jpeg",
+        "base64": null,
+        "order": 1
+      }
+    ]
   }
 ]
