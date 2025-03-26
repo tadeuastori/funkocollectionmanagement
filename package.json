@@ -1,6 +1,6 @@
 {
   "name": "funkocollectionmanagement",
-  "version": "2.0.17",
+  "version": "2.0.18",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -10,7 +10,7 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "prebuild": "ng build --output-path docs --base-href /funkocollectionmanagement/",
-    "postbuild":"node post-build.js",
+    "postbuild": "node post-build.js",
     "deploy": "npm version patch && ng build && npm run prebuild && npm run postbuild"
   },
   "private": true,
